@@ -73,6 +73,13 @@ def update_powerpoint_kqkd():
     exec_summary = data.get("executive_summary", {})
     top_data = data.get("top_30_large_mid_growth", data.get("top_30_bigcap_growth", []))
 
+    # Sắp xếp toàn bộ dữ liệu bảng theo chiều giảm dần của TT_LNST_Q_YoY
+    top_data = sorted(
+        top_data, 
+        key=lambda x: (x.get("TT_LNST_Q_YoY") if x.get("TT_LNST_Q_YoY") is not None else -999999), 
+        reverse=True
+    )
+
     pub_count = exec_summary.get("published_count", 0)
     tot_comp = exec_summary.get("total_companies", 0)
     mkt_cap_pct = exec_summary.get("published_market_cap_percentage", 0.0)

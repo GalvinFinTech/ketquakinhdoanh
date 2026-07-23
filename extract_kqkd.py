@@ -123,8 +123,15 @@ def extract_and_generate():
                 if r.get('VonHoa') is not None and 1000 <= r['VonHoa'] < 10000 
                 and r.get('TT_LNST_Q_YoY') is not None and r['TT_LNST_Q_YoY'] > 0
             ]
+            
             midcap_sorted = sorted(midcap_positive, key=lambda x: x['TT_LNST_Q_YoY'], reverse=True)
             top30_selected.extend(midcap_sorted[:needed])
+        # Sắp xếp lại toàn bộ danh sách 30 DN theo chiều giảm dần của TT_LNST_Q_YoY
+        top30_selected = sorted(
+            top30_selected, 
+            key=lambda x: (x.get('TT_LNST_Q_YoY') if x.get('TT_LNST_Q_YoY') is not None else -999999), 
+            reverse=True
+        )
 
         report_data = {
             "executive_summary": {

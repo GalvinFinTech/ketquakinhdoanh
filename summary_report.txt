@@ -6,9 +6,23 @@ BÁO CÁO NHANH KẾT QUẢ KINH DOANH Q2
 
 TOP 30 DOANH NGHIỆP VỐN HÓA LỚN & VỪA TĂNG TRƯỜNG LNST Q2 DƯƠNG MẠNH NHẤT:
 --------------------------------------------------------------------------------
+VUA      | Vốn hóa:   3,040.00 tỷ | LNST Q2:      39.97 tỷ | YoY: +249.13%
+PPC      | Vốn hóa:   2,885.52 tỷ | LNST Q2:      70.27 tỷ | YoY: + 10.53%
+HRC      | Vốn hóa:   1,011.92 tỷ | LNST Q2:      35.65 tỷ | YoY: +  9.73%
 IDP      | Vốn hóa:  18,232.32 tỷ | LNST Q2:     228.53 tỷ | YoY: +  7.34%
+ABW      | Vốn hóa:   4,015.23 tỷ | LNST Q2:     158.75 tỷ | YoY: +  3.81%
+VLB      | Vốn hóa:   2,254.87 tỷ | LNST Q2:     374.45 tỷ | YoY: +  3.73%
+TSJ      | Vốn hóa:   1,735.30 tỷ | LNST Q2:     248.79 tỷ | YoY: +  3.24%
 VPX      | Vốn hóa:  48,375.00 tỷ | LNST Q2:   1,733.06 tỷ | YoY: +  2.93%
+ORS      | Vốn hóa:   8,360.67 tỷ | LNST Q2:     129.44 tỷ | YoY: +  2.23%
+PVP      | Vốn hóa:   1,783.68 tỷ | LNST Q2:     134.19 tỷ | YoY: +  1.98%
+IDV      | Vốn hóa:   1,010.09 tỷ | LNST Q2:      46.04 tỷ | YoY: +  1.86%
+AGR      | Vốn hóa:   3,105.04 tỷ | LNST Q2:      30.29 tỷ | YoY: +  1.58%
+MST      | Vốn hóa:   1,136.04 tỷ | LNST Q2:       8.52 tỷ | YoY: +  1.53%
 VND      | Vốn hóa:  25,270.18 tỷ | LNST Q2:     882.55 tỷ | YoY: +  1.39%
+CSV      | Vốn hóa:   2,392.32 tỷ | LNST Q2:     129.84 tỷ | YoY: +  1.07%
+PXL      | Vốn hóa:   1,888.10 tỷ | LNST Q2:       0.38 tỷ | YoY: +  1.00%
+SAS      | Vốn hóa:   4,916.77 tỷ | LNST Q2:     215.70 tỷ | YoY: +  0.99%
 VPB      | Vốn hóa: 198,348.09 tỷ | LNST Q2:   8,384.63 tỷ | YoY: +  0.72%
 VCK      | Vốn hóa:  71,830.13 tỷ | LNST Q2:   1,104.33 tỷ | YoY: +  0.57%
 ABB      | Vốn hóa:  27,095.20 tỷ | LNST Q2:   1,212.62 tỷ | YoY: +  0.48%
@@ -22,17 +36,3 @@ TCB      | Vốn hóa: 205,500.97 tỷ | LNST Q2:   7,350.06 tỷ | YoY: +  0.18
 BMP      | Vốn hóa:  12,361.00 tỷ | LNST Q2:     367.19 tỷ | YoY: +  0.11%
 VEF      | Vốn hóa:  11,630.75 tỷ | LNST Q2:     401.11 tỷ | YoY: +  0.06%
 LPB      | Vốn hóa: 162,508.15 tỷ | LNST Q2:   2,520.66 tỷ | YoY: +  0.05%
-VUA      | Vốn hóa:   3,040.00 tỷ | LNST Q2:      39.97 tỷ | YoY: +249.13%
-PPC      | Vốn hóa:   2,885.52 tỷ | LNST Q2:      70.27 tỷ | YoY: + 10.53%
-HRC      | Vốn hóa:   1,011.92 tỷ | LNST Q2:      35.65 tỷ | YoY: +  9.73%
-ABW      | Vốn hóa:   4,015.23 tỷ | LNST Q2:     158.75 tỷ | YoY: +  3.81%
-VLB      | Vốn hóa:   2,254.87 tỷ | LNST Q2:     374.45 tỷ | YoY: +  3.73%
-TSJ      | Vốn hóa:   1,735.30 tỷ | LNST Q2:     248.79 tỷ | YoY: +  3.24%
-ORS      | Vốn hóa:   8,360.67 tỷ | LNST Q2:     129.44 tỷ | YoY: +  2.23%
-PVP      | Vốn hóa:   1,783.68 tỷ | LNST Q2:     134.19 tỷ | YoY: +  1.98%
-IDV      | Vốn hóa:   1,010.09 tỷ | LNST Q2:      46.04 tỷ | YoY: +  1.86%
-AGR      | Vốn hóa:   3,105.04 tỷ | LNST Q2:      30.29 tỷ | YoY: +  1.58%
-MST      | Vốn hóa:   1,136.04 tỷ | LNST Q2:       8.52 tỷ | YoY: +  1.53%
-CSV      | Vốn hóa:   2,392.32 tỷ | LNST Q2:     129.84 tỷ | YoY: +  1.07%
-PXL      | Vốn hóa:   1,888.10 tỷ | LNST Q2:       0.38 tỷ | YoY: +  1.00%
-SAS      | Vốn hóa:   4,916.77 tỷ | LNST Q2:     215.70 tỷ | YoY: +  0.99%
