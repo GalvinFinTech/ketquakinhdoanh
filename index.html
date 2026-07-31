@@ -34,9 +34,9 @@
     </script>
     
     <style>
-        .table-container { max-height: calc(100vh - 350px); overflow-y: auto; overflow-x: auto; border-radius: 8px; border: 1px solid #e2e8f0; }
+        .table-container { max-height: calc(100vh - 350px); overflow-y: auto; overflow-x: auto; border-radius: 12px; border: 1px solid #e2e8f0; }
         .sticky-col-1 { position: sticky; left: 0; z-index: 20; background-color: white; border-right: 1px solid #e2e8f0; }
-        .sticky-col-2 { position: sticky; left: 45px; z-index: 20; background-color: white; border-right: 2px solid #cbd5e1; }
+        .sticky-col-2 { position: sticky; left: 48px; z-index: 20; background-color: white; border-right: 2px solid #cbd5e1; }
         thead th.sticky-col-1, thead th.sticky-col-2 { background-color: #003B70; border-right-color: rgba(255,255,255,0.2); z-index: 30; }
         
         ::-webkit-scrollbar { width: 6px; height: 8px; }
@@ -62,6 +62,15 @@
         .kpi-card-glow:hover {
             transform: translateY(-3px);
             box-shadow: 0 12px 24px -10px rgba(0, 59, 112, 0.25);
+        }
+
+        /* Chart Canvas Dynamic Container */
+        .chart-scroll-wrapper {
+            transition: height 0.3s ease;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow-y: auto;
         }
     </style>
 </head>
@@ -133,7 +142,7 @@
                 <div class="kpi-card-glow bg-gradient-to-br from-[#003B70] via-[#004d91] to-[#00264A] text-white p-4.5 rounded-2xl shadow-lg border border-blue-500/30 flex items-center justify-between relative overflow-hidden">
                     <div class="absolute -right-4 -bottom-4 w-20 h-20 bg-yuanta-cyan/20 rounded-full blur-xl"></div>
                     <div class="z-10">
-                        <p class="text-[11px] font-bold text-blue-200 uppercase tracking-wider">Đã Công Bố (Q2/26)</p>
+                        <p class="text-[11px] font-bold text-blue-200 uppercase tracking-wider">Đã Công Bố (Q2)</p>
                         <h3 class="text-3xl font-black mt-1 tracking-tight text-white" id="statPublished">0</h3>
                         <p class="text-[11px] text-yuanta-cyan font-bold mt-1" id="statPublishedMarketCap">Chiếm 0.00% Vốn hóa</p>
                     </div>
@@ -186,11 +195,11 @@
                 <div class="flex flex-wrap items-center justify-between gap-4 pb-5 border-b border-slate-100">
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 rounded-xl bg-blue-50 text-yuanta-blue flex items-center justify-center text-lg font-bold border border-blue-100">
-                            <i class="fa-solid fa-chart-line"></i>
+                            <i class="fa-solid fa-chart-bar"></i>
                         </div>
                         <div>
-                            <h2 class="text-lg font-extrabold text-yuanta-blue uppercase tracking-tight">Studio Biểu Đồ Báo Cáo KQKD (Chart Export Studio)</h2>
-                            <p class="text-xs text-slate-500 font-medium">Tùy biến tiêu chí lọc, dựng đồ thị kép linh hoạt và xuất hình ảnh PNG sắc nét chèn PowerPoint / Morning Note</p>
+                            <h2 class="text-lg font-extrabold text-yuanta-blue uppercase tracking-tight">Studio Biểu Đồ Cột Ngang Báo Cáo KQKD (Horizontal Chart Studio)</h2>
+                            <p class="text-xs text-slate-500 font-medium">Biểu đồ cột ngang trực quan sắp xếp từ cao xuống thấp, xuất ảnh PNG nền trắng sắc nét chèn PowerPoint / Morning Note</p>
                         </div>
                     </div>
 
@@ -198,12 +207,12 @@
                     <div class="flex items-center gap-2">
                         <button onclick="downloadChartPNG()" class="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-md transition-all flex items-center gap-2">
                             <i class="fa-solid fa-camera-retro text-sm"></i>
-                            <span>Tải Ảnh Biểu Đồ (PNG High-Res)</span>
+                            <span>Tải Ảnh Biểu Đồ (PNG Nền Trắng)</span>
                         </button>
                     </div>
                 </div>
 
-                <!-- Multi-Filter Controls Bar for Chart -->
+                <!-- 5 Multi-Filter Controls Bar for Chart -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 bg-slate-50 p-4 rounded-xl border border-slate-200/80 my-5">
                     <!-- Control 1: Ngành -->
                     <div>
@@ -237,8 +246,8 @@
                     <div>
                         <label class="block text-[11px] font-extrabold text-slate-600 uppercase tracking-wider mb-1.5"><i class="fa-solid fa-arrow-down-short-wide mr-1 text-yuanta-blue"></i> 4. Sắp Xếp Ưu Tiên</label>
                         <select id="chartSortFilter" onchange="updateChartStudio()" class="w-full text-xs font-semibold py-2 px-3 rounded-lg border border-slate-300 bg-white text-slate-800 focus:ring-2 focus:ring-yuanta-blue focus:outline-none">
-                            <option value="GROWTH" selected>Tăng Trưởng % YoY Giảm Dần</option>
-                            <option value="ABS">Giá Trị Tuyệt Đối (Tỷ VNĐ) Giảm Dần</option>
+                            <option value="ABS" selected>Giá Trị Tuyệt Đối (Tỷ VNĐ) Giảm Dần</option>
+                            <option value="GROWTH">Tăng Trưởng % YoY Giảm Dần</option>
                         </select>
                     </div>
 
@@ -257,11 +266,11 @@
                 <!-- Custom Chart Title Edit Box -->
                 <div class="mb-4 flex items-center gap-3">
                     <span class="text-xs font-extrabold text-slate-600 whitespace-nowrap"><i class="fa-solid fa-pen-to-square text-yuanta-cyan"></i> Tiêu đề Biểu đồ:</span>
-                    <input type="text" id="customChartTitleInput" oninput="updateChartStudioTitleOnly()" class="flex-1 text-xs font-bold py-1.5 px-3 rounded-lg border border-slate-300 focus:border-yuanta-blue focus:outline-none bg-slate-50 text-yuanta-blue" placeholder="Nhập tiêu đề hiển thị trên đồ thị...">
+                    <input type="text" id="customChartTitleInput" oninput="updateChartStudioTitleOnly()" class="flex-1 text-xs font-bold py-2 px-3 rounded-lg border border-slate-300 focus:border-yuanta-blue focus:outline-none bg-slate-50 text-yuanta-blue shadow-sm" placeholder="Nhập tiêu đề hiển thị trên đồ thị...">
                 </div>
 
-                <!-- Chart Canvas Wrapper -->
-                <div class="relative w-full h-[450px] bg-white rounded-xl p-3 border border-slate-100 shadow-inner">
+                <!-- Chart Canvas Dynamic Wrapper -->
+                <div id="chartContainerWrapper" class="chart-scroll-wrapper border border-slate-200 p-4 shadow-inner relative min-h-[480px]">
                     <canvas id="studioChartCanvas"></canvas>
                 </div>
             </div>
@@ -532,26 +541,26 @@
 
         function updateChartStudio() {
             const sector = document.getElementById('chartSectorFilter').value;
-            const metric = document.getElementById('chartMetricFilter').value;
-            const period = document.getElementById('chartPeriodFilter').value;
+            const metric = document.getElementById('chartMetricFilter').value; // LNTT, LNST, DTT
+            const period = document.getElementById('chartPeriodFilter').value; // Q2, 6M, 9M
             const sortBy = document.getElementById('chartSortFilter').value;
             const topCount = document.getElementById('chartTopCountFilter').value;
 
             // 1. Filter candidates by sector
             let pool = publishedData.filter(r => sector === 'ALL' || r.NganhL1 === sector);
 
-            // 2. Identify key value column and growth column based on selections
-            let valueKey = `${metric}_${period}`;
-            let growthKey = `TT_${metric}_${period}_YoY`;
+            // 2. Identify exact value key and growth key matching rawStockData structure
+            let periodKey = period === 'Q2' ? 'Q' : period;
+            let valueKey = `${metric}_${period}`; // e.g. LNTT_Q2, LNST_6M, DTT_Q2
+            let growthKey = `TT_${metric}_${periodKey}_YoY`; // e.g. TT_LNTT_Q_YoY, TT_LNST_6M_YoY
 
-            // Fallback for missing keys
             let valName = metric === 'LNTT' ? 'LNTT' : (metric === 'LNST' ? 'LNST' : 'Doanh thu thuần');
             let periodName = period === 'Q2' ? 'Quý 2/2026' : (period === '6M' ? '6 tháng đầu năm 2026' : '9 tháng đầu năm 2026');
 
-            // Exclude empty metric records
+            // Filter out records without metric value
             pool = pool.filter(r => r[valueKey] !== null && r[valueKey] !== undefined);
 
-            // 3. Sort pool
+            // 3. Sort pool according to filter
             if (sortBy === 'GROWTH') {
                 pool.sort((a, b) => (b[growthKey] ?? -999999) - (a[growthKey] ?? -999999));
             } else {
@@ -574,18 +583,38 @@
             
             document.getElementById('customChartTitleInput').value = defaultTitle;
 
-            renderDualAxisChart(labels, valueData, growthData, valName, defaultTitle);
+            renderHorizontalDualAxisChart(labels, valueData, growthData, valName, defaultTitle);
         }
 
-        function renderDualAxisChart(labels, valueData, growthData, valName, titleText) {
-            const ctx = document.getElementById('studioChartCanvas').getContext('2d');
+        function renderHorizontalDualAxisChart(labels, valueData, growthData, valName, titleText) {
+            const wrapper = document.getElementById('chartContainerWrapper');
+            const canvas = document.getElementById('studioChartCanvas');
+
+            // Dynamically set canvas height based on item count for optimal vertical bar spacing
+            const calculatedHeight = Math.max(480, labels.length * 32 + 120);
+            wrapper.style.height = `${calculatedHeight}px`;
 
             if (studioChartInstance) {
                 studioChartInstance.destroy();
             }
 
-            // Register DataLabels Plugin
-            Chart.register(ChartDataLabels);
+            // Custom Chart.js Plugin to force solid white background when drawing/exporting PNG
+            const whiteBackgroundPlugin = {
+                id: 'customCanvasBackgroundColor',
+                beforeDraw: (chart) => {
+                    const {ctx, width, height} = chart;
+                    ctx.save();
+                    ctx.globalCompositeOperation = 'destination-over';
+                    ctx.fillStyle = '#FFFFFF';
+                    ctx.fillRect(0, 0, width, height);
+                    ctx.restore();
+                }
+            };
+
+            // Register DataLabels and White Background Plugin
+            Chart.register(ChartDataLabels, whiteBackgroundPlugin);
+
+            const ctx = canvas.getContext('2d');
 
             studioChartInstance = new Chart(ctx, {
                 type: 'bar',
@@ -600,7 +629,7 @@
                                 const chart = context.chart;
                                 const {ctx, chartArea} = chart;
                                 if (!chartArea) return '#003B70';
-                                const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+                                const gradient = ctx.createLinearGradient(chartArea.left, 0, chartArea.right, 0);
                                 gradient.addColorStop(0, '#00264A');
                                 gradient.addColorStop(0.5, '#003B70');
                                 gradient.addColorStop(1, '#00AEEF');
@@ -609,60 +638,40 @@
                             borderColor: '#003B70',
                             borderWidth: 1,
                             borderRadius: 6,
-                            yAxisID: 'yAbs',
+                            xAxisID: 'xAbs',
                             order: 2,
                             datalabels: {
                                 anchor: 'end',
-                                align: 'top',
+                                align: 'right',
                                 color: '#003B70',
                                 font: { weight: 'bold', size: 10, family: 'Inter' },
-                                formatter: function(val) {
-                                    return val ? new Intl.NumberFormat('vi-VN', { maximumFractionDigits: 0 }).format(val) : '';
-                                }
-                            }
-                        },
-                        {
-                            type: 'line',
-                            label: 'Tăng trưởng YoY (%)',
-                            data: growthData,
-                            borderColor: '#059669',
-                            backgroundColor: '#10B981',
-                            borderWidth: 3,
-                            pointRadius: 5,
-                            pointHoverRadius: 7,
-                            pointBackgroundColor: '#FFFFFF',
-                            pointBorderColor: '#059669',
-                            pointBorderWidth: 2,
-                            tension: 0.35,
-                            yAxisID: 'yPct',
-                            order: 1,
-                            datalabels: {
-                                anchor: 'start',
-                                align: 'top',
-                                color: '#047857',
-                                backgroundColor: 'rgba(236, 253, 245, 0.9)',
-                                borderRadius: 4,
-                                borderPadding: 2,
-                                font: { weight: 'bold', size: 10, family: 'Inter' },
-                                formatter: function(val) {
+                                formatter: function(val, context) {
                                     if (val === null || val === undefined) return '';
-                                    return (val > 0 ? '+' : '') + val.toFixed(1) + '%';
+                                    const formattedVal = new Intl.NumberFormat('vi-VN', { maximumFractionDigits: 0 }).format(val);
+                                    const growthVal = growthData[context.dataIndex];
+                                    let growthStr = '';
+                                    if (growthVal !== null && growthVal !== undefined && !isNaN(growthVal)) {
+                                        growthStr = ` (${growthVal > 0 ? '+' : ''}${growthVal.toFixed(1)}%)`;
+                                    }
+                                    return formattedVal + growthStr;
                                 }
                             }
                         }
                     ]
                 },
                 options: {
+                    indexAxis: 'y', // Convert to Horizontal Bar Chart
                     responsive: true,
                     maintainAspectRatio: false,
                     layout: {
-                        padding: { top: 30, right: 20, left: 10, bottom: 10 }
+                        padding: { top: 20, right: 120, left: 10, bottom: 20 }
                     },
                     interaction: {
                         mode: 'index',
                         intersect: false
                     },
                     plugins: {
+                        customCanvasBackgroundColor: { color: '#FFFFFF' },
                         title: {
                             display: true,
                             text: titleText,
@@ -678,37 +687,37 @@
                             }
                         },
                         tooltip: {
-                            backgroundColor: 'rgba(0, 38, 74, 0.92)',
+                            backgroundColor: 'rgba(0, 38, 74, 0.95)',
                             titleFont: { size: 12, weight: 'bold', family: 'Inter' },
                             bodyFont: { size: 11, family: 'Inter' },
-                            padding: 10,
+                            padding: 12,
                             cornerRadius: 8,
                             callbacks: {
                                 label: function(context) {
-                                    let label = context.dataset.label || '';
-                                    if (label) label += ': ';
-                                    if (context.dataset.type === 'line') {
-                                        label += (context.parsed.y > 0 ? '+' : '') + context.parsed.y.toFixed(2) + '%';
-                                    } else {
-                                        label += new Intl.NumberFormat('vi-VN', { maximumFractionDigits: 2 }).format(context.parsed.y) + ' Tỷ VNĐ';
-                                    }
-                                    return label;
+                                    const idx = context.dataIndex;
+                                    const val = valueData[idx];
+                                    const growth = growthData[idx];
+
+                                    let valStr = `${valName}: ${new Intl.NumberFormat('vi-VN', { maximumFractionDigits: 2 }).format(val)} Tỷ VNĐ`;
+                                    let growthStr = `Tăng trưởng YoY: ${growth !== null && !isNaN(growth) ? (growth > 0 ? '+' : '') + growth.toFixed(2) + '%' : '-'}`;
+                                    
+                                    return [valStr, growthStr];
                                 }
                             }
                         }
                     },
                     scales: {
-                        x: {
+                        y: {
                             grid: { display: false },
                             ticks: {
                                 font: { weight: 'bold', size: 11, family: 'Inter' },
                                 color: '#1E293B'
                             }
                         },
-                        yAbs: {
+                        xAbs: {
                             type: 'linear',
                             display: true,
-                            position: 'left',
+                            position: 'bottom',
                             title: {
                                 display: true,
                                 text: `${valName} (Tỷ VNĐ)`,
@@ -720,22 +729,6 @@
                                 font: { size: 10, family: 'Inter' },
                                 callback: function(val) { return val.toLocaleString('vi-VN'); }
                             }
-                        },
-                        yPct: {
-                            type: 'linear',
-                            display: true,
-                            position: 'right',
-                            title: {
-                                display: true,
-                                text: 'Tăng trưởng YoY (%)',
-                                color: '#059669',
-                                font: { weight: 'bold', size: 11, family: 'Inter' }
-                            },
-                            grid: { drawOnChartArea: false },
-                            ticks: {
-                                font: { size: 10, family: 'Inter' },
-                                callback: function(val) { return (val > 0 ? '+' : '') + val + '%'; }
-                            }
                         }
                     }
                 }
@@ -745,7 +738,10 @@
         function downloadChartPNG() {
             if (!studioChartInstance) return;
             
-            // Create temporary download link from Chart.js canvas base64 image stream
+            // Force redraw chart on pure white background
+            studioChartInstance.render();
+
+            // Export PNG from canvas
             const imageURI = studioChartInstance.toBase64Image('image/png', 1.0);
             const link = document.createElement('a');
             const customTitle = document.getElementById('customChartTitleInput').value.replace(/[^a-zA-Z0-9_ -]/g, '');
@@ -832,4 +828,4 @@
     </script>
 </body>
 </html>
-<!-- LAST_UPDATED: 2026-07-31 10:16:29 -->
+<!-- LAST_UPDATED: 2026-07-31 10:23:15 -->
